@@ -2,9 +2,11 @@
 
 const {sendPOST, sendGET, sendDELETE} = require('./Request');
 
-const baseUrl = 'http://localhost';
+const defaultBaseUrl = process.env.BASE_URL || 'http://localhost';
+
 class Auth {
-    constructor(port){
+    constructor(port, base_url){
+        const baseUrl = base_url || defaultBaseUrl;
         this.url = `${baseUrl}:${port}/users`;
     }
 
