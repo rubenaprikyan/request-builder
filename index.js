@@ -2,7 +2,5 @@
 
 const Auth = require('./build/Auth');
 
-module.exports = (port) => {
-    return new Auth(port);
-};
+module.exports = (port) => new Auth(port);
 
