@@ -31,6 +31,15 @@ const REQUEST_DEFAULT_CONFIG = {
        );
     }
 
+    function sendPUT(url, params) {
+       return   send(url, {
+           ...params,
+           method: 'PUT',
+           data:params.data
+       }
+       );
+    }
+
      function sendDELETE(url, params) {
         return  send(url, {
             ...params,
@@ -40,11 +49,15 @@ const REQUEST_DEFAULT_CONFIG = {
     }
 
      function sendGET(url, params) {
-       return   send( {url, ...params, method: 'GET' });
+       return   send( url, { 
+            ...params, 
+            method: 'GET' 
+       });
     }
 
 module.exports = {
     sendGET,
+    sendPUT,
     sendPOST,
     sendDELETE
 };
